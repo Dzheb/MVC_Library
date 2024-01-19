@@ -24,19 +24,19 @@ public class BookRepository {
         ));
     }
 
-    public Book getBookById(long id) {
+    public Book getBookByIdRepository(long id) {
         return books.stream().filter(it -> Objects.equals(it.getId(), id))
                 .findFirst()
                 .orElse(null);
     }
 
-    public Long addBook(String name) {
+    public Long addBookRepository(String name) {
         Book book = new Book(name);
         books.add(book);
         return book.getId();
     }
 
-    public String deleteBook(Long id) {
+    public String deleteBookRepository(Long id) {
         final Book book;
         book = books.stream().filter(it -> Objects.equals(it.getId(), id))
                 .findFirst()

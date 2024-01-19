@@ -27,19 +27,19 @@ public class ReaderRepository {
         ));
     }
 
-    public Reader getReaderById(long id) {
+    public Reader getReaderByIdRepository(long id) {
         return readers.stream().filter(it -> Objects.equals(it.getId(), id))
                 .findFirst()
                 .orElse(null);
     }
 
-    public Long addReader(String name) {
+    public Long addReaderRepository(String name) {
         Reader reader = new Reader(name);
         readers.add(reader);
         return reader.getId();
     }
 
-    public String deleteReader(long id) {
+    public String deleteReaderRepository(long id) {
         final Reader reader;
         reader = readers.stream().filter(it -> Objects.equals(it.getId(), id))
                 .findFirst()

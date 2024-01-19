@@ -24,7 +24,7 @@ public class IssueRepository {
         issues.add(issue);
     }
 
-    public Issue getIssueById(long id) {
+    public Issue getIssueByIdRepository(long id) {
         return this.issues.stream().filter(it -> it.getId() == id)
                 .findFirst().orElse(null);
     }
@@ -35,11 +35,11 @@ public class IssueRepository {
                         && it.getReturned_at() != null).toList().size();
     }
 
-    public List<Issue> getIssuesByReader(long id) {
+    public List<Issue> getIssuesByReaderRepository(long id) {
         return issues.stream().filter(it -> it.getReaderId() == id).toList();
     }
 
-    public void returnAt(Long issueId) {
+    public void returnAtRepository(Long issueId) {
         issues.stream().filter(it -> it.getId() == issueId)
                 .findFirst().ifPresent(issue -> issue
                         .setReturned_at(LocalDateTime.now()));
