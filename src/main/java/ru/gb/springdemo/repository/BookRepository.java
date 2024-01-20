@@ -20,7 +20,9 @@ public class BookRepository {
         books.addAll(List.of(
                 new Book("Война и мир"),
                 new Book("Мёртвые души"),
-                new Book("Чистый код")
+                new Book("Чистый код"),
+                new Book("Особый район Китая"),
+                new Book("Тихий Дон")
         ));
     }
 
@@ -50,4 +52,7 @@ public class BookRepository {
 
     }
 
+    public List<Book> allBooksRepository() {
+        return this.books;
+    }
 }

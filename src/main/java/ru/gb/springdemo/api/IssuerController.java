@@ -37,7 +37,7 @@ public class IssuerController {
     }
 
     @PostMapping
-    public Object issueBook(@RequestBody IssueRequest request) {
+    public ResponseEntity<Issue> issueBook(@RequestBody IssueRequest request) {
         log.info("Получен запрос на выдачу: readerId = {}, bookId = {}", request.getReaderId(), request.getBookId());
         final Issue issue;
         try {
@@ -48,9 +48,13 @@ public class IssuerController {
         if (issue != null)
             return ResponseEntity.status(HttpStatus.OK).body(issue);
         else
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body("Превышен лимит выдачи книг по читателю");
+            throw new NoSuchElementException("Превышен лимит" +
+                    " выдачи книг по читателю");
     }
 
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<String> notFound(NoSuchElementException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
 }
 

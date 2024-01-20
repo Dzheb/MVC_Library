@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Book {
-
     public static long sequence = 1L;
 
     private final long id;
@@ -16,4 +15,8 @@ public class Book {
         this(sequence++, name);
     }
 
+    @Override
+    public String toString() {
+        return this.id + ".   " + '"'+this.name+'"' ;
+    }
 }

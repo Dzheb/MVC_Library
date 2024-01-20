@@ -52,6 +52,7 @@ public class ReaderRepository {
         }
 
     }
-
-
+    public List<Reader> allReadersRepository() {
+        return this.readers;
+    }
 }

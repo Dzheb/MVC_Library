@@ -15,5 +15,9 @@ public class Reader {
   public Reader(String name) {
     this(sequence++, name);
   }
+  @Override
+  public String toString() {
+    return this.id + ".   " + '"'+this.name+'"' ;
+  }
 
 }

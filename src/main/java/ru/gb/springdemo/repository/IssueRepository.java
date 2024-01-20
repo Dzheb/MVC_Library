@@ -7,7 +7,6 @@ import ru.gb.springdemo.model.Issue;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Repository
@@ -32,7 +31,7 @@ public class IssueRepository {
     public int findBooksByOneReader(long readerId) {
         return issues.stream()
                 .filter(it -> it.getReaderId() == readerId
-                        && it.getReturned_at() != null).toList().size();
+                        && it.getReturned_at() == null).toList().size();
     }
 
     public List<Issue> getIssuesByReaderRepository(long id) {

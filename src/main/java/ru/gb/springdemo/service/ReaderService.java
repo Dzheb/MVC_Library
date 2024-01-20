@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.gb.springdemo.model.Reader;
 import ru.gb.springdemo.repository.ReaderRepository;
+
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ReaderService {
@@ -18,6 +21,10 @@ public class ReaderService {
 
     public String deleteReader(long id) {
         return readerRepository.deleteReaderRepository(id);
+    }
+
+    public List<Reader> allReaders() {
+        return readerRepository.allReadersRepository();
     }
 }
 

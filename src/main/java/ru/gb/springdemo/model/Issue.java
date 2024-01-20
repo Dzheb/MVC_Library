@@ -1,7 +1,6 @@
 package ru.gb.springdemo.model;
 
 import lombok.Data;
-
 import java.time.LocalDateTime;
 
 /**
@@ -10,7 +9,6 @@ import java.time.LocalDateTime;
 @Data
 // @Entity
 public class Issue {
-
     public static long sequence = 1L;
 
     private final long id;
@@ -29,6 +27,7 @@ public class Issue {
         this.readerId = readerId;
         this.issued_at = LocalDateTime.now();
         this.returned_at = null;
+
     }
 
     public void setReturned_at(LocalDateTime returned_at) {
